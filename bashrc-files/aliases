@@ -1,0 +1,71 @@
+alias cvim='vim +ClipBrd +only'
+alias reset='reset; source ~/.bashrc'
+
+# ----------------------
+# Git Aliases
+# ----------------------
+alias ga='git add'
+alias gaa='git add .'
+alias gaaa='git add -A'
+alias gb='git branch'
+alias gbd='git branch -d'
+alias gbD='git branch -D'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gcom='git checkout master'
+alias gcod='git branch --list dev\* | head -n 1 | xargs git checkout'
+alias gd='git diff'
+alias gda='git diff HEAD'
+alias game='git commit --amend --no-edit'
+alias gl='git log'
+alias glg='git log --graph --oneline --decorate --all'
+alias gm='git merge'
+alias gpl='git pull'
+alias gps='git push'
+alias grb='git rebase'
+alias grm='git rm'
+alias grs='git reset'
+alias gss='git status -s'
+alias gr='git remote'
+alias gstat='git diff --shortstat `git hash-object -t tree /dev/null`'
+alias gstats='git diff --stat `git hash-object -t tree /dev/null`'
+
+# gcam, commit all, uses two commands
+function gcam() {
+	if [ -n "$1" ]
+	then
+		git add -A;
+		git commit -m "$*";
+	fi
+}
+
+function gbdr() {
+	if [ -n "$1" ]
+	then
+		git push --delete origin "$*" && git branch -d "$*";
+	fi
+}
+
+# associate git aliases with autocompletion
+__git_complete ga _git_add
+__git_complete gb _git_branch
+__git_complete gbd _git_branch
+__git_complete gbD _git_branch
+__git_complete gbdr _git_branch
+__git_complete gco _git_checkout
+__git_complete gc _git_commit
+__git_complete gd _git_diff
+__git_complete gl _git_log
+__git_complete gpl _git_pull
+__git_complete gps _git_push
+__git_complete gm _git_merge
+__git_complete grb _git_rebase
+__git_complete grm _git_rm
+__git_complete grs _git_reset
+__git_complete gr _git_remote
+
+function isfree() {
+  whois "$1" | grep -i 'no match\|available for registration'
+}

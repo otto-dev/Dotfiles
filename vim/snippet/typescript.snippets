@@ -1,0 +1,63 @@
+snippet cl, "console.log" iA
+console.log($0);
+endsnippet
+
+snippet it, "test asynchronously" bA
+it('$1', ${2:async }() => {
+  $0
+});
+endsnippet
+
+snippet desc, "Describe a test" bA
+describe('$1', () => {
+  $0
+});
+endsnippet
+
+snippet c,  "const" bA
+const $1 = $0;
+endsnippet
+
+snippet l, "let" bA
+let $1 = $0;
+endsnippet
+
+snippet n, "new instance" A
+new $1($0);
+endsnippet
+
+snippet r, "return" bA
+ return $0;
+endsnippet
+
+snippet /^im / "import" brA
+import ${1:\{ $2 \}} from '$0';
+endsnippet
+
+snippet fn, "anonymous function" iA
+($1) => {
+  $0
+}
+endsnippet
+
+snippet for, "For loop" bA
+for (let i = 0; i < ${1:a}.length; i += 1) {
+  $0
+}
+endsnippet
+
+snippet class, "class definition" bA
+class $1 ${2:extends $3} ${4:implements $5 }{
+  $0
+}
+endsnippet
+
+snippet if, "if statement" bA
+if ($1) {
+  $0
+}
+endsnippet
+
+snippet ex, "expect" bA
+expect($1).to.$2($0);
+endsnippet

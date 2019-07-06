@@ -1,0 +1,6 @@
+# Static table lookup for hostnames.
+# See hosts(5) for details.
+
+192.168.1.150 pc1
+
+172.104.172.240 git

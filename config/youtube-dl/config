@@ -1,0 +1,6 @@
+-f bestaudio[ext=m4a]
+-o %(title)s.%(ext)s
+--ignore-errors
+--no-overwrites
+--default-search "ytsearch"
+
