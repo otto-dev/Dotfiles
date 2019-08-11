@@ -26,9 +26,6 @@
 # m:xxx + c:xxx 
 # Shift+... 
 
-
-
-
 #keystate_numlock = enable
 #keystate_scrolllock = enable
 #keystate_capslock = enable

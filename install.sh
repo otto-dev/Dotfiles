@@ -20,6 +20,6 @@ ln -sf ~/Dotfiles/fzf.bash ~/.fzf.bash
 mkdir -p ~/.vim
 ln -sf ~/Dotfiles/vimrc ~/.vimrc
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-vim -c ':silent PlugInstall | quitall'
+vim -c ':silent PlugInstall | quitall' || true
 ln -sf ~/Dotfiles/vim/* ~/.vim/
 python ~/.vim/plugged/YouCompleteMe/install.py

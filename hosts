@@ -8,3 +8,6 @@
 139.180.132.213 enviro-test
 
 172.105.199.241 development
+
+10.8.0.3 cassandra-sg-1
+10.8.0.4 cassandra-au-1 
