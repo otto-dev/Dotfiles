@@ -71,4 +71,4 @@ URxvt.tabbed.new-button:  no
 URxvt.tabbed.autohide:  yes
 URxvt.tabbed.title: yes
 
-
+URxvt.keysym.M-S-W              : \033[26~a

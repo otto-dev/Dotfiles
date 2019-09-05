@@ -68,14 +68,25 @@ endfor
 execute "set <M-,>=\e,"
 execute "set <M-;>=\e;"
 
+" *** Common *** "
+" ================ "
+source ~/Dotfiles/vim-common.vim
+
+" *** Mappings *** "
+" ================ "
+
 " set tab settings
 function! ChangeTabs(width, doExpand)
     if (a:doExpand) | let l:expand = "expandtab" | else | let l:expand = "noexpandtab" | endif
     execute ":set noexpandtab\|retab!\|set tabstop=" . a:width . " softtabstop=". a:width ." shiftwidth=". a:width ." ". l:expand ."\|retab!<CR>"
 endfunction
 
-" *** Mappings *** "
-" ================ "
+" Buffer switching
+nmap <M-s> :bprevious<CR>
+nmap <M-t> :bnext <CR>
+
+" New buffer
+map <M-S-n> :enew<CR>
 
 " File
 nmap <silent> <M-w> :call CloseBufferOrQuit()<CR>
@@ -103,50 +114,9 @@ if has('gui_running')
     set guioptions -=m
 endif
 
-" *** Mappings *** "
-" ================ "
-
-" Escape
-inoremap · <Esc>
-noremap · <Esc>
-cnoremap · <C-C>
-
-" Command mode
-noremap <M-a> :
-
-" File
-nmap <C-S> :w!<CR>
-imap <C-S> <Esc><C-S>
-
-" The hjkl keys are scattered on my Colemak based keyboard layout. The following are the
-" characters which I get when pressing AltGr together with the 'original' hjkl
-" keys. This way I can simulate the normal hjkl key positions by pressing
-" AltGr.
-noremap ß h
-noremap ü gj
-noremap ä gk
-noremap ö l
-map k gk
-map j gj
-
-" Buffer switching
-nmap <M-s> :bprevious<CR>
-nmap <M-t> :bnext <CR>
-
-" New buffer
-map <M-S-n> :enew<CR>
-
 " Adding empty lines in normal mode
 nnoremap <Space>o mzo<Esc>`z
 nnoremap <Space>O mzO<Esc>`z
-
-" Indentation. h/l == h/i on colemak layout
-xnoremap <M-i> >gv
-xnoremap <M-h> <gv
-nnoremap <M-i> >>
-nnoremap <M-h> <<
-imap <M-i> <C-O><M-i>
-imap <M-h> <C-O><M-h>
 
 " Easy access to system clipboard
 imap <M-p> <C-R>+
@@ -157,12 +127,6 @@ map <M-c> "+y
 
 " Paste unnamed register in insert mode
 imap <C-v> <C-R>"
-
-" Add punctuation to end of line
-nmap <M-,> mqA,<Esc>`q
-nmap <M-;> mqA;<Esc>`q
-inoremap <M-,> <Esc>mqA,<Esc>`q
-inoremap <M-;> <Esc>mqA;<Esc>`q
 
 " select last pasted / changed text
 nnoremap <Space>v `[v`]
