@@ -1,4 +1,5 @@
 set bell-style none
 
 TAB: menu-complete
+"\e[Z": menu-complete-backward
 
