@@ -1,4 +1,4 @@
-URxvt.perl-ext-common: default,matcher,clipboard,tabbedex
+URxvt.perl-ext-common: default,matcher,clipboard,tabbedex,-searchable-scrollback
 
 URxvt.clipboard.autocopy: true
 URxvt.keysym.M-c: perl:clipboard:copy
@@ -60,7 +60,6 @@ URxvt*scrollBar: false
 URxvt*srollBar_right: true 
 
 ! fonts
-/* URxvt*font: xft:Source Code Pro:size=13 */
 URxvt*font: xft:SauceCodePro Nerd Font Mono:size=13
 
 ! tabs
@@ -71,3 +70,5 @@ URxvt.tabbed.tab-bg: 11
 URxvt.tabbed.new-button:  no
 URxvt.tabbed.autohide:  yes
 URxvt.tabbed.title: yes
+
+

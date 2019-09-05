@@ -10,6 +10,7 @@ fi
 # Show Git status in terminal
 export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1="${USERNAME}\[\033[01;34m\]${COLOR}[\h] \w\[\033[01;33m\]\$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] "
+export TERM=xterm-256color
 
 # Allow Ctrl-S and Ctrl-Q without freezing terminal
 stty -ixon 
