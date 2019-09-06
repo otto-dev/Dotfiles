@@ -42,6 +42,8 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'xuhdev/vim-latex-live-preview'
 Plug 'wellle/targets.vim'
 Plug 'mileszs/ack.vim'
+Plug 'editorconfig/editorconfig-vim'
+
 
 " Initialize plugin manager
 call plug#end()
@@ -114,10 +116,6 @@ if has('gui_running')
     set guioptions -=m
 endif
 
-" Adding empty lines in normal mode
-nnoremap <Space>o mzo<Esc>`z
-nnoremap <Space>O mzO<Esc>`z
-
 " Easy access to system clipboard
 imap <M-p> <C-R>+
 cmap <M-p> <C-R>+
@@ -127,12 +125,6 @@ map <M-c> "+y
 
 " Paste unnamed register in insert mode
 imap <C-v> <C-R>"
-
-" select last pasted / changed text
-nnoremap <Space>v `[v`]
-
-" disable friggn visual mode popup
-nmap Q <Nop>
 
 " *** Configuration *** "
 " ===================== "

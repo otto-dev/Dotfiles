@@ -12,5 +12,8 @@ noremap <A-a> :
 vnoremap v <Esc>
 
 " Add punctuation to end of line
+" Add punctuation to end of line
 nmap <A-,> mqA,<Esc>`q
-nmap <A-;> mqA;<Esc>`q
+inoremap <A-,> <Esc>mqA,<Esc>`q
+nmap <A-.> mqA;<Esc>`q
+inoremap <A-.> <Esc>mqA;<Esc>`q

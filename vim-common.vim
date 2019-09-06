@@ -25,8 +25,10 @@ map k gk
 map j gj
 
 " Add punctuation to end of line
-nmap <M-,> mqA;<Esc>`q
-inoremap <M-,> <Esc>mqA;<Esc>`q
+nmap <M-,> mqA,<Esc>`q
+inoremap <M-,> <Esc>mqA,<Esc>`q
+nmap <M-.> mqA;<Esc>`q
+inoremap <M-.> <Esc>mqA;<Esc>`q
 
 " Indentation. h/l == h/i on colemak layout
 xnoremap <M-i> >gv
@@ -35,3 +37,10 @@ nnoremap <M-i> >>
 nnoremap <M-h> <<
 imap <M-i> <C-O><M-i>
 imap <M-h> <C-O><M-h>
+
+" Adding empty lines in normal mode
+nnoremap <Space>o mzo<Esc>`z
+nnoremap <Space>O mzO<Esc>`z
+
+" select last pasted / changed text
+nnoremap <Space>v `[v`]
