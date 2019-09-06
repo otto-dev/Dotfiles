@@ -44,3 +44,7 @@ nnoremap <Space>O mzO<Esc>`z
 
 " select last pasted / changed text
 nnoremap <Space>v `[v`]
+
+" jump to start/end of line in insert mode
+inoremap <C-A> <Esc>I
+inoremap <C-E> <Esc>A

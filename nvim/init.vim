@@ -9,10 +9,20 @@ source ~/Dotfiles/vim/plugin/move-config.vim
 Plug 'justinmk/vim-sneak'
 source ~/Dotfiles/vim/plugin/sneak-config.vim
 
+Plug 'alvan/vim-closetag'
+source ~/Dotfiles/vim/plugin/closetag-config.vim
+
+Plug 'terryma/vim-expand-region'
+source ~/Dotfiles/vim/plugin/expand-region-config.vim
+
+Plug 'Raimondi/delimitMate'
+source ~/Dotfiles/vim/plugin/delimitmate-config.vim
+
+Plug 'sheerun/vim-polyglot'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-indent'
-Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
@@ -23,7 +33,7 @@ nmap <M-s> :tabprevious<CR>
 nmap <M-t> :tabnext<CR>
 
 " close tab
-nmap <M-w> :bdelete<CR>
+nmap <silent> <M-w> :bdelete<CR>
 nmap <M-W> :bdelete!<CR>
 
 " New file
@@ -39,3 +49,9 @@ map <M-c> "+y
 " disable friggn visual mode popup
 nmap Q <Nop>
 
+" open a terminal tab
+nnoremap <C-enter> :tabnew +terminal<CR>
+
+if has('nvim')
+  autocmd TermOpen term://* startinsert
+endif
