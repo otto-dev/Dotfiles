@@ -1,3 +1,33 @@
+" *** Configuration *** "
+" ===================== "
+
+" Search
+set ignorecase
+set gdefault " use the `g` flag by default.
+set incsearch
+" set nohlsearch
+
+" Keep cursor at visual distance to top and bottom
+set scrolloff=5
+
+" Garbage files
+set nobackup
+set nowritebackup
+set noswapfile
+
+" Auto reload changed files
+set autoread
+
+" Default indentation settings
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+
+" Load per-project directory .vimrc
+set exrc
+set secure
+
 " *** Mappings *** "
 " ================ "
 
@@ -25,10 +55,10 @@ map k gk
 map j gj
 
 " Add punctuation to end of line
-nmap <M-,> mqA,<Esc>`q
-inoremap <M-,> <Esc>mqA,<Esc>`q
-nmap <M-.> mqA;<Esc>`q
-inoremap <M-.> <Esc>mqA;<Esc>`q
+nmap <silent> <M-,> myA,<Esc>`y
+inoremap <silent> <M-,> <Esc>myA,<Esc>`y
+nmap <silent> <M-.> myA;<Esc>`y
+inoremap <silent> <M-.> <Esc>myA;<Esc>`y
 
 " Indentation. h/l == h/i on colemak layout
 xnoremap <M-i> >gv
@@ -37,6 +67,9 @@ nnoremap <M-i> >>
 nnoremap <M-h> <<
 imap <M-i> <C-O><M-i>
 imap <M-h> <C-O><M-h>
+
+" go to mark
+nnoremap <M-m> `
 
 " Adding empty lines in normal mode
 nnoremap <Space>o mzo<Esc>`z

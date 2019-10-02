@@ -32,3 +32,5 @@ EDITOR=/usr/bin/nano
 
 #PAGER='less -s' psql
 
+source /usr/share/nvm/init-nvm.sh
+source /usr/share/nvm/init-nvm.sh

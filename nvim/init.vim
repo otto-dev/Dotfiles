@@ -18,11 +18,19 @@ source ~/Dotfiles/vim/plugin/expand-region-config.vim
 Plug 'Raimondi/delimitMate'
 source ~/Dotfiles/vim/plugin/delimitmate-config.vim
 
+Plug 'tpope/vim-abolish'
+source ~/Dotfiles/vim/plugin/abolish-config.vim
+
+Plug 'psf/black'
+source ~/Dotfiles/vim/plugin/black-config.vim
+
+Plug 'romainl/vim-cool'
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-indent'
+Plug 'posva/vim-vue'
 
 call plug#end()
 
@@ -55,3 +63,5 @@ nnoremap <C-enter> :tabnew +terminal<CR>
 if has('nvim')
   autocmd TermOpen term://* startinsert
 endif
+
+nmap <M-L> :Black<CR>

@@ -43,7 +43,9 @@ Plug 'xuhdev/vim-latex-live-preview'
 Plug 'wellle/targets.vim'
 Plug 'mileszs/ack.vim'
 Plug 'editorconfig/editorconfig-vim'
-
+Plug 'romainl/vim-cool'
+Plug 'junegunn/goyo.vim'
+Plug 'psf/black'
 
 " Initialize plugin manager
 call plug#end()
@@ -124,7 +126,7 @@ map <M-S-p> "+P
 map <M-c> "+y
 
 " Paste unnamed register in insert mode
-imap <C-v> <C-R>"
+" imap <C-v> <C-R>"
 
 " *** Configuration *** "
 " ===================== "
@@ -145,22 +147,6 @@ set background=dark
 set t_Co=256
 set encoding=utf8
 
-" Keep cursor at visual distance to top and bottom
-set scrolloff=5
-
-" Search
-set ignorecase
-set gdefault " use the `g` flag by default.
-set incsearch
-
-" Garbage files
-set nobackup
-set nowritebackup
-set noswapfile
-
-" Auto reload changed files
-set autoread
-
 " create split windows in lower pane by default
 set splitbelow
 
@@ -174,12 +160,6 @@ augroup END
 " display absolute numbers!
 set number
 
-" Default indentation settings
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set expandtab
-
 " Process <Tab> as key press instead of writing ^I
 set wildcharm=<Tab>
 
@@ -189,10 +169,6 @@ autocmd FileType vue setlocal ts=2 sts=2 sw=2 et
 
 " Always show sign column
 set signcolumn=yes
-
-" Load per-project directory .vimrc
-set exrc
-set secure
 
 " Do not show auto-documentation in python
 set completeopt=menu
