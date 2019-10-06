@@ -28,7 +28,7 @@ source ~/Dotfiles/bashrc-files/sensible
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 BROWSER=/usr/bin/chromium
-EDITOR=/usr/bin/nano
+EDITOR=/usr/bin/vim
 
 #PAGER='less -s' psql
 
