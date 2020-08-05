@@ -1,7 +1,7 @@
 URxvt.perl-ext-common: default,matcher,clipboard,tabbedex,-searchable-scrollback
 
 URxvt.clipboard.autocopy: true
-URxvt.keysym.M-c: perl:clipboard:copy
+!URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-p: perl:clipboard:paste
 
 ! do not scroll with output
@@ -15,6 +15,7 @@ URxvt*scrollTtyKeypress: true
 
 ! Molokai theme
 urxvt*foreground: white
+*background: #2E3436
 urxvt*background: #2E3436
 
 *color0:  #2E3436
@@ -34,7 +35,7 @@ urxvt*background: #2E3436
 *color14: #fcaf3e
 *color15: #EEEEEC
 
-*xterm*background: #101010
+*xterm*background: #2E3436
 *xterm*foreground: #d0d0d0
 *xterm*cursorColor: #d0d0d0
 *xterm*color0: #101010
@@ -54,8 +55,8 @@ urxvt*background: #2E3436
 *xterm*color14: #4eb4fa
 *xterm*color15: #d0d0d0
 
-URxvt.transparent:   true
-URxvt.shading:       10
+!URxvt.transparent:   true
+!URxvt.shading:       10
 URxvt*scrollBar: false 
 URxvt*srollBar_right: true 
 
@@ -63,16 +64,19 @@ URxvt*srollBar_right: true
 URxvt*font: xft:SauceCodePro Nerd Font Mono:size=13
 
 ! tabs
-URxvt.tabbed.tabbar-fg: 7
-URxvt.tabbed.tabbar-bg: 0
-URxvt.tabbed.tab-fg: 0
-URxvt.tabbed.tab-bg: 11
-URxvt.tabbed.new-button:  no
-URxvt.tabbed.autohide:  yes
-URxvt.tabbed.title: yes
+URxvt.tabbedex.tabbar-fg: 7
+URxvt.tabbedex.tabbar-bg: 0
+URxvt.tabbedex.tab-fg: 0
+URxvt.tabbedex.tab-bg: 11
+URxvt.tabbedex.autohide: yes
+URxvt.tabbedex.title: yes
 
-!*tabbar-timeouts: "0:⡀:2:⡄:5:⡆:9:⡇:18:⣇:30:⣧:45:⣷:60:⣿:70:▁:80:▂:90:▃:120:▄:150:▅:180:▆:210:▎:270:▍:420:▋:580:▊:780:█"
+*tabbar-timeouts: "0:⡀:2:⡄:5:⡆:9:⡇:18:⣇:30:⣧:45:⣷:60:⣿:70:▁:80:▂:90:▃:120:▄:150:▅:180:▆:210:▎:270:▍:420:▋:580:▊:780:█"
 
 URxvt.keysym.M-S-W              : \033[26~a
 
 URxvt.saveLines: 200000
+URxvt*termName: rxvt-unicode-256color
+
+URxvt.tabbedex.tab-arguments: -e %~/.urxvt/pgid-cd.pl %p %E
+

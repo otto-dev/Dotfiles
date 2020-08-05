@@ -13,13 +13,10 @@ Plug 'tpope/vim-commentary'
 Plug 'matze/vim-move'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'w0rp/ale'
-Plug 'sheerun/vim-polyglot'
 Plug 'ciaranm/detectindent'
-Plug 'vim-scripts/clipbrd'
 Plug 'vim-scripts/genutils'
 Plug 'Quramy/tsuquyomi'
 Plug 'scrooloose/nerdtree'
-Plug 'Valloric/YouCompleteMe'
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-abolish'
 Plug 'mattn/emmet-vim'
@@ -39,13 +36,14 @@ Plug 'honza/vim-snippets'
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/incsearch-fuzzy.vim'
 Plug 'haya14busa/incsearch-easymotion.vim'
-Plug 'xuhdev/vim-latex-live-preview'
 Plug 'wellle/targets.vim'
 Plug 'mileszs/ack.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'romainl/vim-cool'
 Plug 'junegunn/goyo.vim'
-Plug 'psf/black'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neovimhaskell/haskell-vim'
+Plug 'Chiel92/vim-autoformat'
 
 " Initialize plugin manager
 call plug#end()
@@ -175,3 +173,5 @@ set completeopt=menu
 
 " Spell check
 set spelllang=en
+
+set formatprg=stylish-haskell
