@@ -34,3 +34,8 @@ EDITOR=/usr/bin/vim
 
 source /usr/share/nvm/init-nvm.sh
 source /usr/share/nvm/init-nvm.sh
+
+# Avoid duplicates
+export HISTCONTROL=ignoredups:erasedups
+# When the shell exits, append to the history file instead of overwriting it
+shopt -s histappend

@@ -24,8 +24,12 @@ source ~/Dotfiles/vim/plugin/abolish-config.vim
 Plug 'psf/black'
 source ~/Dotfiles/vim/plugin/black-config.vim
 
+Plug 'ciaranm/detectindent'
+source ~/Dotfiles/vim/plugin/detectindent-config.vim
+
 Plug 'romainl/vim-cool'
 Plug 'sheerun/vim-polyglot'
+Plug 'jason0x43/vim-js-indent' 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'

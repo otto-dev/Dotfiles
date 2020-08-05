@@ -34,10 +34,10 @@
 
 # Decrease volume
 "pactl -- set-sink-volume @DEFAULT_SINK@ -4%"
-    shift + m:0x10 + b:7
+    shift + m:0x10 + b:6
 
 # Increase volume
 "pactl -- set-sink-volume @DEFAULT_SINK@ +4%"
-    shift + m:0x10 + b:6
+    shift + m:0x10 + b:7
 #
 # End of xbindkeys configuration

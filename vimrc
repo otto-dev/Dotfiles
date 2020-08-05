@@ -174,5 +174,4 @@ set signcolumn=yes
 set completeopt=menu
 
 " Spell check
-set spell
 set spelllang=en

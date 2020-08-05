@@ -28,6 +28,9 @@ set expandtab
 set exrc
 set secure
 
+" don't break lines mid-word
+set linebreak
+
 " *** Mappings *** "
 " ================ "
 
