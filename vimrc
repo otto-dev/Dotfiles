@@ -174,4 +174,5 @@ set completeopt=menu
 " Spell check
 set spelllang=en
 
-set formatprg=stylish-haskell
+" Enable mouse clicks
+set mouse=a

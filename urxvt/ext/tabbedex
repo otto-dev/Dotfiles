@@ -74,8 +74,8 @@ below) and replaced with custom ones using urxvt's B<keysym> resource.
 The extension can be configured with X resources just like urxvt itself, for
 example:
 
-    URxvt.tabbedex.tabbar-fg: 4
-    URxvt.tabbedex.tabbar-bg: 0
+	 URxvt.tabbedex.tabbar-fg: 4
+	 URxvt.tabbedex.tabbar-bg: 0
 
 Tabbedex recognises the following resources:
 
@@ -123,13 +123,13 @@ font-style of the text.
 
 The default values for the settings are as follows:
 
-    Component | *-fg          | *-bg | Description
-    ----------+---------------+------+----------------------
-    tabbar    |             3 |    0 | brown text on black
-    tab       | bold        0 |    1 | black text on red
-    bell      |      italic 0 |    3 | black text on brown
-    bell-tab  | bold italic 5 |    4 | magenta text on blue
-    title     |      italic 2 |    0 | green text on black
+	 Component | *-fg          | *-bg | Description
+	 ----------+---------------+------+----------------------
+	 tabbar    |             3 |    0 | brown text on black
+	 tab       | bold        0 |    1 | black text on red
+	 bell      |      italic 0 |    3 | black text on brown
+	 bell-tab  | bold italic 5 |    4 | magenta text on blue
+	 title     |      italic 2 |    0 | green text on black
 
 =item B<bell-timeout>: I<number>
 
@@ -177,8 +177,8 @@ or I</bin/sh> if that's empty.  This means that I<%E> is always a valid command.
 For example, here's how the sequence can be used to set TABBEDEX_NUM environment
 variables when running a command:
 
-    URxvt.tabbedex.tab-arguments: \
-        -e /usr/bin/env TABBEDEX_NUM=%n %E
+	 URxvt.tabbedex.tab-arguments: \
+		  -e /usr/bin/env TABBEDEX_NUM=%n %E
 
 =item I<%n>
 
@@ -215,25 +215,25 @@ If set, the default key bindings (described at the beginning of this document)
 are not set up.  The mappings can be recreated using urxvt's B<keysym.*>
 resources:
 
-    URxvt.tabbedex.no-tabbedex-keys: yes
-    URxvt.keysym.Shift-Left:    tabbedex:prev_tab
-    URxvt.keysym.Shift-Right:   tabbedex:next_tab
-    URxvt.keysym.Shift-Down:    tabbedex:new_tab
-    URxvt.keysym.Shift-Up:      tabbedex:rename_tab
-    URxvt.keysym.Control-Left:  tabbedex:move_tab_left
-    URxvt.keysym.Control-Right: tabbedex:move_tab_right
-    URxvt.keysym.Meta-F1:       tabbedex:goto_tab_1
-    URxvt.keysym.Meta-F2:       tabbedex:goto_tab_2
-    URxvt.keysym.Meta-F3:       tabbedex:goto_tab_3
-    URxvt.keysym.Meta-F4:       tabbedex:goto_tab_4
-    URxvt.keysym.Meta-F5:       tabbedex:goto_tab_5
-    URxvt.keysym.Meta-F6:       tabbedex:goto_tab_6
-    URxvt.keysym.Meta-F7:       tabbedex:goto_tab_7
-    URxvt.keysym.Meta-F8:       tabbedex:goto_tab_8
-    URxvt.keysym.Meta-F9:       tabbedex:goto_tab_9
-    URxvt.keysym.Meta-F10:      tabbedex:goto_tab_10
-    URxvt.keysym.Meta-F11:      tabbedex:goto_tab_11
-    URxvt.keysym.Meta-F12:      tabbedex:goto_tab_12
+	 URxvt.tabbedex.no-tabbedex-keys: yes
+	 URxvt.keysym.Shift-Left:    tabbedex:prev_tab
+	 URxvt.keysym.Shift-Right:   tabbedex:next_tab
+	 URxvt.keysym.Shift-Down:    tabbedex:new_tab
+	 URxvt.keysym.Shift-Up:      tabbedex:rename_tab
+	 URxvt.keysym.Control-Left:  tabbedex:move_tab_left
+	 URxvt.keysym.Control-Right: tabbedex:move_tab_right
+	 URxvt.keysym.Meta-F1:       tabbedex:goto_tab_1
+	 URxvt.keysym.Meta-F2:       tabbedex:goto_tab_2
+	 URxvt.keysym.Meta-F3:       tabbedex:goto_tab_3
+	 URxvt.keysym.Meta-F4:       tabbedex:goto_tab_4
+	 URxvt.keysym.Meta-F5:       tabbedex:goto_tab_5
+	 URxvt.keysym.Meta-F6:       tabbedex:goto_tab_6
+	 URxvt.keysym.Meta-F7:       tabbedex:goto_tab_7
+	 URxvt.keysym.Meta-F8:       tabbedex:goto_tab_8
+	 URxvt.keysym.Meta-F9:       tabbedex:goto_tab_9
+	 URxvt.keysym.Meta-F10:      tabbedex:goto_tab_10
+	 URxvt.keysym.Meta-F11:      tabbedex:goto_tab_11
+	 URxvt.keysym.Meta-F12:      tabbedex:goto_tab_12
 
 See I<ACTIONS AND USER COMMANDS> below for list of available actions.
 
@@ -255,13 +255,13 @@ since last time there was any activity in the tab.
 
 This resource allows for this to be customised.  It's format is
 
-    ( <timeout> ":" <char> <char>? ":" )* <timeout> ":" <char> <char>? ":"
+	 ( <timeout> ":" <char> <char>? ":" )* <timeout> ":" <char> <char>? ":"
 
 where <timeout> is timeout in seconds and <char> is an activity character.  If
 two characters are given, they specify left and right activity marks.  If one
 character is given, it specifies both.  For example:
 
-    URxvt.tabbedex.tabbar-timeouts: 0:|:3:():6:[]:9:{}:12:<>
+	 URxvt.tabbedex.tabbar-timeouts: 0:|:3:():6:[]:9:{}:12:<>
 
 As a deprecated feature, if a single character is given and it's (, [, { or <,
 matching closing brace will be used for right activity mark.  This is feature
@@ -276,14 +276,14 @@ If resource using extension's name as well as one using the alternate prefix are
 found, the former takes precedence.  If only the latter is present, its value is
 used but a warning is issued as well, for example:
 
-    URxvt.tabbed.tabbar-fg:   5   -- ignored
-    URxvt.tabbed.tabbar-bg:   0   -- used but issues a warning
-    URxvt.tabbedex.tabbar-fg: 4   -- used
+	 URxvt.tabbed.tabbar-fg:   5   -- ignored
+	 URxvt.tabbed.tabbar-bg:   0   -- used but issues a warning
+	 URxvt.tabbedex.tabbar-fg: 4   -- used
 
 For best backwards compatibility, all options should use C<tabbedex> prefix and
 the <tabbedex-rs-prefix> resource should be to percent sign as in:
 
-    URxvt.tabbed.tabbedex-rs-prefix: %
+	 URxvt.tabbed.tabbedex-rs-prefix: %
 
 =back
 
@@ -309,13 +309,13 @@ is set.
 tabbedex supports actions which can be bound to keystrokes using
 B<URxvt.keysym>.I<keysym> resource.  For example:
 
-    URxvt.keysym.Control-t:            tabbedex:new_tab
-    URxvt.keysym.Control-Tab:          tabbedex:next_tab
-    URxvt.keysym.Control-Shift-Tab:    tabbedex:prev_tab
-    ! Shift-Tab is often bound to ISO_Left_Tab in X keyboard
-    ! layouts.  In those layouts Control-Shift-Tab won't
-    ! work and Control-ISO_Left_Tab is needed instead:
-    URxvt.keysym.Control-ISO_Left_Tab: tabbedex:prev_tab
+	 URxvt.keysym.Control-t:            tabbedex:new_tab
+	 URxvt.keysym.Control-Tab:          tabbedex:next_tab
+	 URxvt.keysym.Control-Shift-Tab:    tabbedex:prev_tab
+	 ! Shift-Tab is often bound to ISO_Left_Tab in X keyboard
+	 ! layouts.  In those layouts Control-Shift-Tab won't
+	 ! work and Control-ISO_Left_Tab is needed instead:
+	 URxvt.keysym.Control-ISO_Left_Tab: tabbedex:prev_tab
 
 makes I<Ctrl+T> create a new tab and I<Ctrl+Tab> and I<Ctrl+Shift+Tab> switch
 between existing tabs.  Using the name of the extension as the prefix of the
@@ -333,7 +333,7 @@ the second form, I<arguments> temporarily override value of the B<tab-arguments>
 resource.  This makes it possible to create bindings which start particular
 commands, for example:
 
-    URxvt.keysym.F1:    tabbedex:new_tab:-e info
+	 URxvt.keysym.F1:    tabbedex:new_tab:-e info
 
 makes it such that pressing F1 will open a new tab running B<info> command.
 (Remember that I<arguments> are passed as arguments to urxvt so to run a command
@@ -344,7 +344,7 @@ B<-e> is required as in example above).
 Like B<tabbedex:new_tab> but puts the new tab before (if I<side> is B<before>)
 or after (if I<side> is B<after>) the current tab on the tab list.  For example,
 
-    URxvt.keysym.C-t:   tabbedex:new_tab_after_this
+	 URxvt.keysym.C-t:   tabbedex:new_tab_after_this
 
 makes I<Ctrl+T> start a new tab next to the current one.
 
@@ -377,7 +377,7 @@ tabbedex supports a single OSC sequence which can be invoked by programs running
 in the terminal by writing a special sequence, namely I<ESC ] 777 ; string ST>
 where I<string> is the command to execute.  For example:
 
-    printf '\033]777;tabbedex;set_tab_name;%s\007' "foo"
+	 printf '\033]777;tabbedex;set_tab_name;%s\007' "foo"
 
 =over
 
@@ -475,7 +475,7 @@ sub register_keysyms {
 	$self->parse_keysym('Control-Right', $prefix . ':move_tab_right');
 	for my $num (1..12) {
 		$self->parse_keysym('Meta-F' . $num,
-				    $prefix . ':goto_tab_' . $num);
+			$prefix . ':goto_tab_' . $num);
 	}
 }
 
@@ -489,26 +489,26 @@ sub register_keysyms {
 sub enable_action_hooks {
 	my ($self, $isroot) = @_;
 	$self->enable(user_command => $isroot ? sub {
-		if ($_[1] =~ s/^tabbedex://) {
-			splice @_, 1, 0, $_[0]{cur};
-			goto \&urxvt::ext::tabbedex::root::tab_action;
-		}
-	} : sub {
-		if ($_[1] =~ s/^tabbedex://) {
-			unshift @_, $_[0]{root};
-			goto \&urxvt::ext::tabbedex::root::tab_action;
-		}
-	});
+			if ($_[1] =~ s/^tabbedex://) {
+				splice @_, 1, 0, $_[0]{cur};
+				goto \&urxvt::ext::tabbedex::root::tab_action;
+			}
+		} : sub {
+			if ($_[1] =~ s/^tabbedex://) {
+				unshift @_, $_[0]{root};
+				goto \&urxvt::ext::tabbedex::root::tab_action;
+			}
+		});
 	# Guard against ancient urxvts which do not support ‘action’ hook.  We
 	# probably shouldn’t bother, but oh well…
 	eval {
 		$self->enable(action => $isroot ? sub {
-			splice @_, 1, 0, $_[0]{cur};
-			goto \&urxvt::ext::tabbedex::root::tab_action;
-		} : sub {
-			unshift @_, $_[0]{root};
-			goto \&urxvt::ext::tabbedex::root::tab_action;
-		});
+				splice @_, 1, 0, $_[0]{cur};
+				goto \&urxvt::ext::tabbedex::root::tab_action;
+			} : sub {
+				unshift @_, $_[0]{root};
+				goto \&urxvt::ext::tabbedex::root::tab_action;
+			});
 		1
 	} // 0
 }
@@ -568,8 +568,8 @@ sub _tabbar_range {
 	$max = $max < 2 ? 1 : $max;
 	my $width = length $names->[$first_idx];
 	$ncol -= (($width < $max ? $width : $max) + 2 +  # name and marks
-	          ($first_idx > 0 && !$new_button) +  # left arrow
-	          ($last_idx < $#$names));  # right arrow
+		($first_idx > 0 && !$new_button) +  # left arrow
+		($last_idx < $#$names));  # right arrow
 
 	my $try_add = sub {
 		my $idx = shift;
@@ -605,17 +605,17 @@ sub _tabbar_truncate_names {
 	my ($root, $ncol, $new_button, $names, $first_idx, $last_idx) = @_;
 
 	$ncol -= (3 * ($last_idx - $first_idx) + 2 +  # pipes and marks
-	          ($first_idx > 0 && !$new_button) +  # left arrow
-	          ($last_idx < $#$names));  # right arrow
+		($first_idx > 0 && !$new_button) +  # left arrow
+		($last_idx < $#$names));  # right arrow
 	my $max = int($ncol / ($last_idx - $first_idx + 1));
 	my $cur_max = $max;
 
 	if ($max > 0 && $first_idx < $last_idx) {
 		my @lengths = sort { $b <=> $a }
-		              grep { $_ <= $max ? (($ncol -= $_), 0) : 1 }
-		              map  length, @{ $names }[$first_idx .. $last_idx];
+		grep { $_ <= $max ? (($ncol -= $_), 0) : 1 }
+		map  length, @{ $names }[$first_idx .. $last_idx];
 		while (@lengths &&
-		       $lengths[$#lengths] <= ($max = int($ncol / @lengths))) {
+			$lengths[$#lengths] <= ($max = int($ncol / @lengths))) {
 			do {
 				$ncol -= pop @lengths;
 			} while (@lengths && $lengths[$#lengths] <= $max);
@@ -625,7 +625,7 @@ sub _tabbar_truncate_names {
 
 	for my $idx ($first_idx .. $last_idx) {
 		my $width = $root->{cur} == $root->{tabs}[$idx]
-			? $cur_max : $max;
+		? $cur_max : $max;
 		if (length(my $name = $names->[$idx]) <= $width) {
 			# nop
 		} elsif ($width >= 2) {
@@ -694,8 +694,8 @@ sub refresh {
 	my ($root, $now) = @_;
 
 	my $visible = (!$root->{autohide} ||
-	               @{ $root->{tabs} } > 1 ||
-	               $root->{cur}->is_being_renamed);
+		@{ $root->{tabs} } > 1 ||
+		$root->{cur}->is_being_renamed);
 	if ($visible != !!$root->{tabheight}) {
 		$root->{tabheight} = $visible * $root->{maxtabheight};
 		$root->configure;
@@ -722,7 +722,7 @@ sub refresh {
 	for my $idx ($first_idx .. $last_idx) {
 		my $tab = $root->{tabs}[$idx];
 		my ($left, $right, $delay) =
-			$root->tab_activity_marks($tab, $now);
+		$root->tab_activity_marks($tab, $now);
 		$bar->add_button(
 			$left . $names->[$idx] . $right,
 			($tab == $root->{cur}) + 2 * ($now < $tab->{bell_ends}),
@@ -766,7 +766,7 @@ sub tab_term_init {
 
 	foreach my $key (values %urxvt::OPTION) {
 		my $val = exists $root->{option}{$key}
-		  ? $root->{option}{$key} : $root->option($key);
+		? $root->{option}{$key} : $root->option($key);
 		$term->option($key, $val);
 	}
 
@@ -792,8 +792,8 @@ sub args_percent_substitution {
 		quote_words @{ $root->{argv} }
 	} elsif ($ch eq 'E') {
 		quote_words @{ $root->{argv} }
-			? @{ $root->{argv} }[1..$#{ $root->{argv} }]
-			: ($ENV{SHELL} || '/bin/sh')
+		? @{ $root->{argv} }[1..$#{ $root->{argv} }]
+		: ($ENV{SHELL} || '/bin/sh')
 	} elsif ($ch eq 'p') {
 		$tab ? $tab->foreground_pgid : -1
 	} elsif ($ch eq 'n') {
@@ -802,14 +802,14 @@ sub args_percent_substitution {
 		exists $ENV{'HOME'} ? quote_words $ENV{'HOME'} : '/'
 	} else {
 		$root->warn('unrecognised substitution in ‘tab-arguments’: ',
-			    '‘%', $ch, '’; will substitute with empty string');
+			'‘%', $ch, '’; will substitute with empty string');
 		''
 	}
 }
 
 sub new_tab {
 	my ($root, $tab, $args, $index) = @_;
-
+	my $pwd = (exists $ENV{'HOME'} ? $ENV{'HOME'} : '/');
 	if (!defined $args) {
 		$args = $root->{tab_arguments};
 	}
@@ -818,79 +818,86 @@ sub new_tab {
 		$args = $root->{argv};
 	} else {
 		$args =~ s/%(.)/
-			$root->args_percent_substitution($1, $tab)
+		$root->args_percent_substitution($1, $tab)
 		/ge;
 		if (defined Text::ParseWords::shellwords($args)) {
 			$args = [Text::ParseWords::shellwords($args)];
 		} else {
 			$root->warn('error parsing ‘tab-arguments’ value: ‘',
-				    $args, '’; ignoring');
+				$args, '’; ignoring');
 			$args = $root->{argv};
 		}
+	}
+
+	if (@{ $root->{tabs} }) {
+		# Get the working directory of the current tab and append a -cd to the command line
+		my $pid = $tab->foreground_pgid;
+		$pwd = readlink "/proc/$pid/cwd";
 	}
 
 	push @urxvt::TERM_INIT, sub { $root->tab_term_init($_[0], $index) };
 	push @urxvt::TERM_EXT, urxvt::ext::tabbedex::;
 	new urxvt::term
-		$root->env, $urxvt::RXVTNAME,
-		-embed => $root->parent,
-		@{ $args }
+	$root->env, $urxvt::RXVTNAME,
+	-embed => $root->parent,
+	-cd => $pwd,
+	@{ $args }
 }
 
 
 sub configure {
-   my ($root) = @_;
+	my ($root) = @_;
 
-   my $tab = $root->{cur};
+	my $tab = $root->{cur};
 
-   # this is an extremely dirty way to force a configurenotify, but who cares
-   $tab->XMoveResizeWindow (
-      $tab->parent,
-      0, $root->{tabheight} + 1,
-      $root->width, $root->height - $root->{tabheight}
-   );
-   $tab->XMoveResizeWindow (
-      $tab->parent,
-      0, $root->{tabheight},
-      $root->width, $root->height - $root->{tabheight}
-   );
+	# this is an extremely dirty way to force a configurenotify, but who cares
+	$tab->XMoveResizeWindow (
+		$tab->parent,
+		0, $root->{tabheight} + 1,
+		$root->width, $root->height - $root->{tabheight}
+	);
+	$tab->XMoveResizeWindow (
+		$tab->parent,
+		0, $root->{tabheight},
+		$root->width, $root->height - $root->{tabheight}
+	);
 }
 
 
 sub copy_properties {
-   my ($root) = @_;
-   my $tab = $root->{cur};
+	my ($root) = @_;
+	my $tab = $root->{cur};
 
-   my $wm_normal_hints = $root->XInternAtom ("WM_NORMAL_HINTS");
+	my $wm_normal_hints = $root->XInternAtom ("WM_NORMAL_HINTS");
 
-   my $current = delete $root->{current_properties};
+	my $current = delete $root->{current_properties};
 
-   # pass 1: copy over properties different or nonexisting
-   for my $atom ($tab->XListProperties ($tab->parent)) {
-      my ($type, $format, $items) = $root->XGetWindowProperty ($tab->parent,
-                                                               $atom);
+	# pass 1: copy over properties different or nonexisting
+	for my $atom ($tab->XListProperties ($tab->parent)) {
+		my ($type, $format, $items) = $root->XGetWindowProperty ($tab->parent,
+			$atom);
 
-      # fix up size hints
-      if ($atom == $wm_normal_hints) {
-         my (@hints) = unpack "l!*", $items;
+		# fix up size hints
+		if ($atom == $wm_normal_hints) {
+			my (@hints) = unpack "l!*", $items;
 
-         $hints[$_] += $root->{tabheight} for (4, 6, 16);
+			$hints[$_] += $root->{tabheight} for (4, 6, 16);
 
-         $items = pack "l!*", @hints;
-      }
+			$items = pack "l!*", @hints;
+		}
 
-      my $cur = delete $current->{$atom};
+		my $cur = delete $current->{$atom};
 
-      # update if changed, we assume empty items and zero type and
-      # format will not happen
-      $root->XChangeProperty ($root->parent, $atom, $type, $format, $items)
-         if $cur->[0] != $type or $cur->[1] != $format or $cur->[2] ne $items;
+		# update if changed, we assume empty items and zero type and
+		# format will not happen
+		$root->XChangeProperty ($root->parent, $atom, $type, $format, $items)
+		if $cur->[0] != $type or $cur->[1] != $format or $cur->[2] ne $items;
 
-      $root->{current_properties}{$atom} = [$type, $format, $items];
-   }
+		$root->{current_properties}{$atom} = [$type, $format, $items];
+	}
 
-   # pass 2, delete all extraneous properties
-   $root->XDeleteProperty ($root->parent, $_) for keys %$current;
+	# pass 2, delete all extraneous properties
+	$root->XDeleteProperty ($root->parent, $_) for keys %$current;
 }
 
 
@@ -933,31 +940,31 @@ sub make_current {
 
 
 _on focus_in => sub {
-   my ($root, $event) = @_;
-   $root->{cur}->focus_in;
-   ();
+	my ($root, $event) = @_;
+	$root->{cur}->focus_in;
+	();
 };
 
 _on focus_out => sub {
-   my ($root, $event) = @_;
-   $root->{cur}->focus_out;
-   ();
+	my ($root, $event) = @_;
+	$root->{cur}->focus_out;
+	();
 };
 
 _on tt_write => sub {
-    my ($root, $octets) = @_;
-    $root->{cur}->tt_write ($octets);
-    1
+	my ($root, $octets) = @_;
+	$root->{cur}->tt_write ($octets);
+	1
 };
 
 _on key_press => sub {
-   my ($root, $event) = @_;
-   $root->key_event('key_press', $event);
+	my ($root, $event) = @_;
+	$root->key_event('key_press', $event);
 };
 
 _on key_release => sub {
-   my ($root, $event) = @_;
-   $root->key_event('key_release', $event);
+	my ($root, $event) = @_;
+	$root->key_event('key_release', $event);
 };
 
 sub key_event {
@@ -983,7 +990,7 @@ _on button_release => sub {
 	my ($root, $event) = @_;
 
 	if ($root->{cur}->is_being_renamed || $event->{row} != 0 ||
-	    $event->{button} != 1) {
+		$event->{button} != 1) {
 		return ();
 	}
 
@@ -1005,121 +1012,122 @@ _on button_release => sub {
 
 {
 
-# TODO: Add a warning in late 2020 or thereabouts if this is used and then
-# remove completely a year later or such.
-my %matching_marks = ('[' => ']', '{' => '}', '(' => ')', '<' => '>');
+	# TODO: Add a warning in late 2020 or thereabouts if this is used and then
+	# remove completely a year later or such.
+	my %matching_marks = ('[' => ']', '{' => '}', '(' => ')', '<' => '>');
 
-sub parse_timeouts {
-	my ($root, $timeouts) = @_;
-	my $char = eval { qr/\X/ } // qr/./;
-	my @timeouts;
-	while ($timeouts =~ /\G(\d*\.\d+|\d+):($char)($char)?(?::|$)/g) {
-		my $left = $root->special_encode($2);
-		my $right = $root->special_encode(
-			$3 // $matching_marks{$2} // $2);
-		push @timeouts, [$1 + 0, $left, $right];
+	sub parse_timeouts {
+		my ($root, $timeouts) = @_;
+		my $char = eval { qr/\X/ } // qr/./;
+		my @timeouts;
+		while ($timeouts =~ /\G(\d*\.\d+|\d+):($char)($char)?(?::|$)/g) {
+			my $left = $root->special_encode($2);
+			my $right = $root->special_encode(
+				$3 // $matching_marks{$2} // $2);
+			push @timeouts, [$1 + 0, $left, $right];
+		}
+		@timeouts = sort { $b->[0] <=> $a->[0] } @timeouts;
+		if (!@timeouts || $timeouts[$#timeouts][0] > 0) {
+			push @timeouts, [0, '*', '*'];
+		}
+		\@timeouts
 	}
-	@timeouts = sort { $b->[0] <=> $a->[0] } @timeouts;
-	if (!@timeouts || $timeouts[$#timeouts][0] > 0) {
-		push @timeouts, [0, '*', '*'];
-	}
-	\@timeouts
-}
 
 }
 
 sub init {
-   my ($root) = @_;
+	my ($root) = @_;
 
-   $root->{resource} = [map $root->resource ("+$_"),
-                            0 .. urxvt::NUM_RESOURCES - 1];
+	$root->{resource} = [map $root->resource ("+$_"),
+		0 .. urxvt::NUM_RESOURCES - 1];
 
-   $root->resource (int_bwidth => 0);
-   $root->resource (pty_fd => -1);
+	$root->resource (int_bwidth => 0);
+	$root->resource (pty_fd => -1);
 
-   if (defined(my $key = $urxvt::OPTION{scrollBar})) {
-      $root->{option}{$key} = $root->option($key, 0);
-   }
-   # Disable ‘intensityStyles’ so that bold, blink etc. specified in tabbar
-   # styles don’t affect the colours.
-   if (defined(my $key = $urxvt::OPTION{intensityStyles})) {
-      $root->{option}{$key} = $root->option($key, 0);
-   }
+	if (defined(my $key = $urxvt::OPTION{scrollBar})) {
+		$root->{option}{$key} = $root->option($key, 0);
+	}
+	# Disable ‘intensityStyles’ so that bold, blink etc. specified in tabbar
+	# styles don’t affect the colours.
+	if (defined(my $key = $urxvt::OPTION{intensityStyles})) {
+		$root->{option}{$key} = $root->option($key, 0);
+	}
 
-   my $rs = new urxvt::ext::tabbedex::rs_reader($root);
+	my $rs = new urxvt::ext::tabbedex::rs_reader($root);
 
-   $root->{timeouts} = $root->parse_timeouts($rs->text(
-      'tabbar-timeouts', '0:▁:3:▂:6:▃:9:▄:12:▅:15:▆:18:▇:21:█'));
-   $root->{bell_timeout}     = $rs->text('bell-timeout', 1) + 0;
-   $root->{new_button}       = $rs->text('new-button', '');
-   $root->{tab_title}        = $rs->bool('title', 1);
-   $root->{autohide}         = $rs->bool('autohide', 1);
-   $root->{register_keysyms} = !$rs->bool('no-tabbedex-keys', 0);
-   $root->{reopen_on_close}  = $rs->bool('reopen-on-close', 0);
-   $root->{tab_arguments}    = $rs->text('tab-arguments', '');
-   $root->{tab_name_start}   = $rs->text('tab-name-start', 1);
+	$root->{timeouts} = $root->parse_timeouts($rs->text(
+			'tabbar-timeouts', '0:▁:3:▂:6:▃:9:▄:12:▅:15:▆:18:▇:21:█'));
+	$root->{bell_timeout}     = $rs->text('bell-timeout', 1) + 0;
+	$root->{new_button}       = $rs->text('new-button', '');
+	$root->{tab_title}        = $rs->bool('title', 1);
+	$root->{autohide}         = $rs->bool('autohide', 1);
+	$root->{register_keysyms} = !$rs->bool('no-tabbedex-keys', 0);
+	$root->{reopen_on_close}  = $rs->bool('reopen-on-close', 0);
+	$root->{tab_arguments}    = $rs->text('tab-arguments', '');
+	$root->{tab_name_start}   = $rs->text('tab-name-start', 1);
 
-   $root->{tab_name_default} = $_
+	$root->{tab_name_default} = $_
 	? do{
-	  sub baseX($@){$_[0]>0?baseX(int($_[0]/$#_),@_[1..$#_]).$_[$_[0]%$#_+1]:''}
-	  my @symbs = split //, $_;
-	  sub{ baseX($_[0] + $root->{tab_name_start}, @symbs) || $symbs[0] };
+		sub baseX($@){$_[0]>0?baseX(int($_[0]/$#_),@_[1..$#_]).$_[$_[0]%$#_+1]:''}
+		my @symbs = split //, $_;
+		sub{ baseX($_[0] + $root->{tab_name_start}, @symbs) || $symbs[0] };
 	}
 	: sub{$_[0] + $root->{tab_name_start}}
-   for $rs->text('tab-name-symbols', '');
+	for $rs->text('tab-name-symbols', '');
 
-   # TODO: Remove the warning in late 2020.
-   if (defined $rs->text('new-tab-command')) {
-      $root->warn('‘new-tab-command’ resource is no longer recognised; ',
-                  'use ‘tab-arguments’ instead');
-   }
+	# TODO: Remove the warning in late 2020.
+	if (defined $rs->text('new-tab-command')) {
+		$root->warn('‘new-tab-command’ resource is no longer recognised; ',
+			'use ‘tab-arguments’ instead');
+	}
 
-   if (my $blacklist = $rs->text('perl-ext-blacklist')) {
-       $blacklist =~ s/,/,-/;
-       $root->{perl_ext_blacklist} = ',-' . $blacklist;
-   }
+	if (my $blacklist = $rs->text('perl-ext-blacklist')) {
+		$blacklist =~ s/,/,-/;
+		$root->{perl_ext_blacklist} = ',-' . $blacklist;
+	}
 
-   my ($colours, $cmd) = $rs->colours(['            3', '0', 'tabbar'],
-                                      ['bold        0', '1', 'tab'],
-                                      ['     italic 0', '3', 'bell'],
-                                      ['bold italic 5', '4', 'bell-tab'],
-                                      ['     italic 2', '0', 'title']);
-   $root->{init_cmd} = $cmd . "\033[?25l";
-   $root->{rs_colours} = $colours;
+	my ($colours, $cmd) = $rs->colours(['            3', '0', 'tabbar'],
+		['bold        0', '1', 'tab'],
+		['     italic 0', '3', 'bell'],
+		['bold italic 5', '4', 'bell-tab'],
+		['     italic 2', '0', 'title']);
+	$root->{init_cmd} = $cmd . "\033[?25l";
+	$root->{rs_colours} = $colours;
 
-   $root->{timer} = urxvt::timer->new->cb ( sub { $root->refresh; } );
+	$root->{timer} = urxvt::timer->new->cb ( sub { $root->refresh; } );
+	$root->{timer} = urxvt::timer->new->interval (0.3)->cb ( sub { $root->refresh; } );
 }
 
 _on start => sub {
-   my ($root) = @_;
+	my ($root) = @_;
 
-   $root->{maxtabheight} =
-      $root->int_bwidth + $root->fheight + $root->lineSpace;
-   $root->{tabheight} = $root->{autohide} ? 0 : $root->{maxtabheight};
+	$root->{maxtabheight} =
+	$root->int_bwidth + $root->fheight + $root->lineSpace;
+	$root->{tabheight} = $root->{autohide} ? 0 : $root->{maxtabheight};
 
-   $root->cmd_parse(delete $root->{init_cmd});
+	$root->cmd_parse(delete $root->{init_cmd});
 
-   my @argv = $root->argv;
-   do {
-      shift @argv;
-   } while @argv && $argv[0] ne "-e";
-   $root->{argv} = \@argv;
+	my @argv = $root->argv;
+	do {
+		shift @argv;
+	} while @argv && $argv[0] ne "-e";
+	$root->{argv} = \@argv;
 
-   if ($root->{tab_title}) {
-      $root->{tab_title} = $root->XInternAtom("_NET_WM_NAME", 1);
-   }
+	if ($root->{tab_title}) {
+		$root->{tab_title} = $root->XInternAtom("_NET_WM_NAME", 1);
+	}
 
-   $root->new_tab;
+	$root->new_tab;
 
-   ();
+	();
 };
 
 
 _on configure_notify => sub {
-   my ($root, $event) = @_;
-   $root->configure;
-   $root->refresh;
-   ();
+	my ($root, $event) = @_;
+	$root->configure;
+	$root->refresh;
+	();
 };
 
 
@@ -1159,9 +1167,9 @@ sub tab_destroy {
 		if (!$root->{reopen_on_close}) {
 			# Delay destruction a tiny bit.
 			$root->{destroy} = urxvt::iw->new->start->cb(sub {
-				$root->{timer}->stop;
-				$root->destroy;
-			});
+					$root->{timer}->stop;
+					$root->destroy;
+				});
 			return ();
 		}
 		$root->new_tab;
@@ -1179,12 +1187,12 @@ sub tab_destroy {
 
 
 sub tab_property_notify {
-   my ($root, $tab, $event) = @_;
+	my ($root, $tab, $event) = @_;
 
-   $root->copy_properties
-      if $event->{window} == $tab->parent;
+	$root->copy_properties
+	if $event->{window} == $tab->parent;
 
-   ();
+	();
 }
 
 
@@ -1200,7 +1208,7 @@ sub tab_bell {
 	if ($tab == $root->{cur}) {
 		$tab->{bell_ends} = $now + $root->{bell_timeout};
 	} elsif (defined($key = $urxvt::OPTION{mapAlert}) &&
-	         $tab->option($key)) {
+		$tab->option($key)) {
 		$root->make_current($tab, $now + $root->{bell_timeout});
 		return;
 	} else {
@@ -1281,7 +1289,7 @@ sub move_tab {
 		$idx = 0;
 	} else {
 		($root->{tabs}[$idx], $root->{tabs}[$idx + $direction]) =
-			($root->{tabs}[$idx + $direction], $root->{tabs}[$idx]);
+		($root->{tabs}[$idx + $direction], $root->{tabs}[$idx]);
 		$idx += $direction;
 	}
 	$root->refresh;
@@ -1312,12 +1320,12 @@ use POSIX qw/tcgetpgrp/;
 
 sub enable_hooks {
 	for my $hook (qw(start destroy property_notify add_lines
-	                 bell osc_seq_perl)) {
+		bell osc_seq_perl)) {
 		my $name = "urxvt::ext::tabbedex::root::tab_$hook";
 		$_[0]->enable($hook => sub {
-			unshift @_, $_[0]{root};
-			goto &$name;
-		});
+				unshift @_, $_[0]{root};
+				goto &$name;
+			});
 	};
 }
 
@@ -1356,8 +1364,8 @@ sub finish_rename_tab {
 	my ($tab, $accept) = @_;
 	if (!$tab->is_being_renamed) {
 		$tab->{root}->warn('finish_rename_tab called on tab which is ',
-				   'not being renamed; this is an internal ',
-				   'error, please report it');
+			'not being renamed; this is an internal ',
+			'error, please report it');
 		return;
 	}
 	if ($accept) {
@@ -1447,7 +1455,7 @@ sub text {
 		$value = $root->x_resource("$prefix.$name");
 		if (defined $value) {
 			$root->warn("‘$prefix.$name’ resource uses deprecated " .
-			            "prefix. Use ‘$extname.$name’ instead.");
+				"prefix. Use ‘$extname.$name’ instead.");
 		}
 	}
 	defined $value ? $root->locale_decode($value) : $default
@@ -1582,7 +1590,7 @@ sub apply {
 	$bar->{pipe_pending} = 0;
 	if ($bar->{ncol} > length $bar->{text}) {
 		$bar->_append(' ' x ($bar->{ncol} - length $bar->{text}),
-		              $bar->{pad_colour});
+			$bar->{pad_colour});
 	} elsif ($bar->{ncol} < length $bar->{text}) {
 		$bar->{text} = substr $bar->{text}, 0, $bar->{ncol};
 		splice @{ $bar->{rend} }, $bar->{ncol};

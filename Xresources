@@ -15,7 +15,6 @@ URxvt*scrollTtyKeypress: true
 
 ! Molokai theme
 urxvt*foreground: white
-*background: #2E3436
 urxvt*background: #2E3436
 
 *color0:  #2E3436
@@ -55,8 +54,6 @@ urxvt*background: #2E3436
 *xterm*color14: #4eb4fa
 *xterm*color15: #d0d0d0
 
-!URxvt.transparent:   true
-!URxvt.shading:       10
 URxvt*scrollBar: false 
 URxvt*srollBar_right: true 
 
@@ -76,7 +73,6 @@ URxvt.tabbedex.title: yes
 URxvt.keysym.M-S-W              : \033[26~a
 
 URxvt.saveLines: 200000
-URxvt*termName: rxvt-unicode-256color
 
-URxvt.tabbedex.tab-arguments: -e %~/.urxvt/pgid-cd.pl %p %E
+! URxvt.tabbedex.tab-arguments: -e %~/.urxvt/pgid-cd.pl %p %E
 
