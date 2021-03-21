@@ -76,3 +76,7 @@ URxvt.saveLines: 200000
 
 ! URxvt.tabbedex.tab-arguments: -e %~/.urxvt/pgid-cd.pl %p %E
 
+URxvt.keysym.Home: \033[1~
+URxvt.keysym.End: \033[4~
+URxvt.keysym.KP_Home: \033[1~
+URxvt.keysym.KP_End:  \033[4~
