@@ -44,6 +44,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovimhaskell/haskell-vim'
 Plug 'Chiel92/vim-autoformat'
+Plug 'ambv/black'
 
 " Initialize plugin manager
 call plug#end()
