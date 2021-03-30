@@ -1,5 +1,6 @@
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
+let g:coc_disable_startup_warning = 1
 
 if has("patch-8.1.1564")
   " Recently vim can merge signcolumn and number column into one

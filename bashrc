@@ -24,7 +24,7 @@ source ~/Dotfiles/bashrc-files/git-completion
 source ~/Dotfiles/bashrc-files/aliases
 
 # Sensible bash
-source ~/Dotfiles/bashrc-files/sensible
+ source ~/Dotfiles/bashrc-files/sensible
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
