@@ -36,6 +36,10 @@ alias gr='git remote'
 alias gstat='git diff --shortstat `git hash-object -t tree /dev/null`'
 alias gstats='git diff --stat `git hash-object -t tree /dev/null`'
 
+
+# binaries
+alias lynx='lynx -cookies -accept_all_cookies'
+
 # gcam, commit all, uses two commands
 function gcam() {
 	if [ -n "$1" ]
