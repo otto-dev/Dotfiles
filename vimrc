@@ -45,6 +45,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovimhaskell/haskell-vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ambv/black'
+Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
 
 " Initialize plugin manager
 call plug#end()

@@ -42,6 +42,9 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Remap for rename current word
+nmap <Space>n <Plug>(coc-rename)
+
 " Use K to show documentation in preview window.
 nnoremap <silent> <Space>t :call <SID>show_documentation()<CR>
 
@@ -55,3 +58,7 @@ endfunction
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
