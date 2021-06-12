@@ -1,67 +1,47 @@
 " ===============
 " *** Plugins ***
 
+" TODO:
+" - good indentation detection
+" - install, configure and internalise tpope/vim-eunuch for file operations?
+" - Chiel92/vim-autoformat for automatic formatting on save
+
 " Configure plugin manager VimPlug
 call plug#begin('~/.vim/plugged')
-
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
 Plug 'ap/vim-buftabline'
 Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-repeat'
+" add braces
+Plug 'tpope/vim-surround'
+" jump to two characters, enhanced f/t
 Plug 'justinmk/vim-sneak'
-Plug 'tpope/vim-commentary'
-Plug 'matze/vim-move'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'w0rp/ale'
-Plug 'ciaranm/detectindent'
-Plug 'vim-scripts/genutils'
-Plug 'Quramy/tsuquyomi'
-Plug 'scrooloose/nerdtree'
-Plug 'Raimondi/delimitMate'
-Plug 'tpope/vim-abolish'
-Plug 'mattn/emmet-vim'
-Plug 'yuttie/comfortable-motion.vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'tpope/vim-eunuch'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'ryanoasis/vim-devicons'
+" comment out things
+Plug 'tpope/vim-commentary'
+" move lines up and down
+Plug 'matze/vim-move'
+Plug 'scrooloose/nerdtree'
+" auto-close parentheses
+Plug 'Raimondi/delimitMate'
+" auto-close HTML tags
 Plug 'alvan/vim-closetag'
+" required for kana/*
 Plug 'kana/vim-textobj-user'
+" select entire file with target 'e'
 Plug 'kana/vim-textobj-entire'
+" select at indentation level
 Plug 'kana/vim-textobj-indent'
-Plug 'terryma/vim-expand-region'
-Plug 'marijnh/tern_for_vim'
-Plug 'sirver/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch-fuzzy.vim'
-Plug 'haya14busa/incsearch-easymotion.vim'
+" additional text targets, such as 'da,'
 Plug 'wellle/targets.vim'
-Plug 'mileszs/ack.vim'
-Plug 'editorconfig/editorconfig-vim'
-Plug 'romainl/vim-cool'
-Plug 'junegunn/goyo.vim'
+" intellisense engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neovimhaskell/haskell-vim'
-Plug 'Chiel92/vim-autoformat'
-Plug 'ambv/black'
+" Scala intellisense
 Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
 
-" Initialize plugin manager
+" Initialize plugin system
 call plug#end()
 
-" *** Main Configuration ***
-" ================
-
-" *** Terminal ***
-" ================
-let g:session_id = "vim-" . strftime('%s')
-tmap <silent> <C-@> <C-W>:call term_sendkeys(bufnr('%'), "\<C-a>\<C-d>")\|bwipeout! terminal!<CR>
-nmap <silent> <C-@> :if bufnr("terminal!") == -1\|call term_start('screen -D -R -S ' . g:session_id, {'term_name': 'terminal!'}) \| call setbufvar(bufnr('terminal!'), '&buflisted', 0)\|execute "resize " . (winheight(1) + winheight(0)) * 2 / 5 \|endif<CR>
-autocmd VimEnter * silent call system("screen -d -m -S " . g:session_id .";screen -S ". g:session_id ." -X \"cd " . getcwd() . "\"")
-autocmd VimLeave * silent call system("screen -S " . g:session_id ." -X quit")
-
-" *** Alt-Key Mappings ***
+" *** Fix: Alt-Key Mappings ***
 " ================
 for i in range(97,122)
     let char = nr2char(i)
@@ -72,69 +52,80 @@ endfor
 execute "set <M-,>=\e,"
 execute "set <M-;>=\e;"
 
-" *** Common *** "
-" ================ "
-source ~/Dotfiles/vim-common.vim
-
-" *** Mappings *** "
-" ================ "
-
-" set tab settings
-function! ChangeTabs(width, doExpand)
-    if (a:doExpand) | let l:expand = "expandtab" | else | let l:expand = "noexpandtab" | endif
-    execute ":set noexpandtab\|retab!\|set tabstop=" . a:width . " softtabstop=". a:width ." shiftwidth=". a:width ." ". l:expand ."\|retab!<CR>"
-endfunction
-
-" Buffer switching
-nmap <M-s> :bprevious<CR>
-nmap <M-t> :bnext <CR>
-
-" New buffer
-map <M-S-n> :enew<CR>
-
-" File
-nmap <silent> <M-w> :call CloseBufferOrQuit()<CR>
-nmap <silent> <expr> <M-S-w> &mod ? ":u1\|u\<CR>:call CloseBufferOrQuit()\<CR>" : ":call CloseBufferOrQuit()\<CR>"
-
-nmap <Space><Tab>2 :call ChangeTabs(2, 0)<CR>
-nmap <Space><Tab>4 :call ChangeTabs(4, 0)<CR>
-nmap <Space><Tab>8 :call ChangeTabs(8, 0)<CR>
-nmap <Space><Space>2 :call ChangeTabs(2, 1)<CR>
-nmap <Space><Space>4 :call ChangeTabs(4, 1)<CR>
-nmap <Space><Space>8 :call ChangeTabs(8, 1)<CR>
-
 " *** Configuration *** "
 " ===================== "
+
+" Search
+set ignorecase
+set gdefault " use the `g` flag by default.
+set incsearch
+" set nohlsearch
+
+" Keep cursor at visual distance to top and bottom
+set scrolloff=5
+
+" Garbage files
+set nobackup
+set nowritebackup
+set noswapfile
+
+" Auto reload changed files
+set autoread
+
+" Default indentation settings
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+
+" Load per-project directory .vimrc
+set exrc
+set secure
+
+" don't break lines mid-word
+set linebreak
 
 " Allow buffer switching with unsaved changes
 set hidden
 
-" Fuzzy file finding
-set path+=**
+" CursorHold idle trigger time
+set updatetime=500
 
-" GVIM
-if has('gui_running')
-    set guioptions -=T
-    set guioptions -=m
-endif
+" File
+nmap <C-S> :w!<CR>
+imap <C-S> <Esc><C-S>
 
-" Easy access to system clipboard
-imap <M-p> <C-R>+
-cmap <M-p> <C-R>+
-map <M-p> "+p
-map <M-S-p> "+P
-map <M-c> "+y
+" The hjkl keys are scattered on my Colemak based keyboard layout. The following are the
+" characters which I get when pressing AltGr together with the 'original' hjkl
+" keys. This way I can simulate the normal hjkl key positions by pressing
+" AltGr.
+noremap ß h
+noremap ü gj
+noremap ä gk
+noremap ö l
+map k gk
+map j gj
 
-" Paste unnamed register in insert mode
-" imap <C-v> <C-R>"
+" Add punctuation to end of line
+nmap <silent> <M-,> myA,<Esc>`y
+inoremap <silent> <M-,> <Esc>myA,<Esc>`y
+nmap <silent> <M-.> myA;<Esc>`y
+inoremap <silent> <M-.> <Esc>myA;<Esc>`y
 
-" *** Configuration *** "
-" ===================== "
+" Indentation. h/l == h/i on colemak layout
+xnoremap <M-i> >gv
+xnoremap <M-h> <gv
+nnoremap <M-i> >>
+nnoremap <M-h> <<
+imap <M-i> <C-O><M-i>
+imap <M-h> <C-O><M-h>
+
+" select last pasted / changed text
+nnoremap <Space>v `[v`]
 
 " Misc
 set wildmenu
 set wildmode=longest:full,full
-let mapleader = ","
 set nocompatible
 filetype plugin on
 
@@ -147,9 +138,6 @@ set background=dark
 set t_Co=256
 set encoding=utf8
 
-" create split windows in lower pane by default
-set splitbelow
-
 " Don't wait on <ESC> presses
 augroup FastEscape
     autocmd!
@@ -157,41 +145,46 @@ augroup FastEscape
     au InsertLeave,VimEnter * set timeoutlen=800 ttimeoutlen=0
 augroup END
 
+" Buffer switching
+nmap <M-s> :bprevious<CR>
+nmap <M-t> :bnext <CR>
+
+" New buffer
+map <C-n> :enew<CR>
+
+" File
+nmap <silent> <M-w> :call CloseBufferOrQuit()<CR>
+nmap <silent> <Space><Space>w :bd!<CR>
+
+
 " display absolute numbers!
 set number
 
 " Process <Tab> as key press instead of writing ^I
 set wildcharm=<Tab>
 
-" Filetype based indentation settings
-autocmd FileType javascript.jsx setlocal ts=2 sts=2 sw=2 et
-autocmd FileType vue setlocal ts=2 sts=2 sw=2 et
-
-" Always show sign column
-set signcolumn=yes
-
-" Do not show auto-documentation in python
-set completeopt=menu
-
-" Spell check
-set spelllang=en
-
 " Enable mouse clicks
 set mouse=a
 
-" CursorHold idle trigger time
-set updatetime=750
+" Easy access to system clipboard
+imap <M-p> <C-R>+
+cmap <M-p> <C-R>+
+map <M-p> "+p
+map <M-S-p> "+P
+map <M-c> "+y
 
-" Triger `autoread` when files changes on disk
-" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
-" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
-autocmd FocusGained,BufEnter,CursorHold,CursorHoldI *
-      \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
+" Give more space for displaying messages.
+set cmdheight=2
 
-" Notification after file change
-" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
-autocmd FileChangedShellPost *
-  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
 
-" Vue files
-autocmd BufRead,BufNewFile *.vue set filetype=html
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" GVIM
+if has('gui_running')
+    set guioptions -=T
+    set guioptions -=m
+endif

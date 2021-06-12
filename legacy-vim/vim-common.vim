@@ -31,17 +31,6 @@ set secure
 " don't break lines mid-word
 set linebreak
 
-" *** Mappings *** "
-" ================ "
-
-" Escape
-inoremap · <Esc>
-noremap · <Esc>
-cnoremap · <C-C>
-
-" Command mode
-noremap <M-a> :
-
 " File
 nmap <C-S> :w!<CR>
 imap <C-S> <Esc><C-S>
@@ -71,16 +60,19 @@ nnoremap <M-h> <<
 imap <M-i> <C-O><M-i>
 imap <M-h> <C-O><M-h>
 
-" go to mark
-nnoremap <M-m> `
-
-" Adding empty lines in normal mode
-nnoremap <Space>o mzo<Esc>`z
-nnoremap <Space>O mzO<Esc>`z
-
 " select last pasted / changed text
 nnoremap <Space>v `[v`]
 
-" jump to start/end of line in insert mode
-inoremap <C-A> <Esc>I
-inoremap <C-E> <Esc>A
+" Allow buffer switching with unsaved changes
+set hidden
+
+" Fuzzy file finding
+set path+=**
+
+" Easy access to system clipboard
+imap <M-p> <C-R>+
+cmap <M-p> <C-R>+
+map <M-p> "+p
+map <M-S-p> "+P
+map <M-c> "+y
+

@@ -1,0 +1,7 @@
+{
+  "metals": {
+    "javaHome": "/usr/lib/jvm/java-11-openjdk",
+    "excludedPackages": ["akka.actor.typed.javadsl"],
+    "showInferredType": true
+  }
+}
