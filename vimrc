@@ -15,7 +15,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 " jump to two characters, enhanced f/t
 Plug 'justinmk/vim-sneak'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " comment out things
 Plug 'tpope/vim-commentary'
 " move lines up and down
