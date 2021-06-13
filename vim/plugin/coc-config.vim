@@ -30,6 +30,8 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+nmap <Space>ws <Plug>(coc-metals-expand-decoration)
+
 " Use <space>t to show documentation in preview window.
 nnoremap <silent> <Space>t :call <SID>show_documentation()<CR>
 

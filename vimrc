@@ -43,14 +43,16 @@ call plug#end()
 
 " *** Fix: Alt-Key Mappings ***
 " ================
-for i in range(97,122)
-    let char = nr2char(i)
-    let upperChar = toupper(char)
-    execute "set <M-".char.">=\e".char
-    execute "set <M-S-".char.">=\e".upperChar
-endfor
-execute "set <M-,>=\e,"
-execute "set <M-;>=\e;"
+if !has('nvim')
+  for i in range(97,122)
+      let char = nr2char(i)
+      let upperChar = toupper(char)
+      execute "set <M-".char.">=\e".char
+      execute "set <M-S-".char.">=\e".upperChar
+  endfor
+  execute "set <M-,>=\e,"
+  execute "set <M-;>=\e;"
+endif
 
 " *** Configuration *** "
 " ===================== "
@@ -172,9 +174,6 @@ cmap <M-p> <C-R>+
 map <M-p> "+p
 map <M-S-p> "+P
 map <M-c> "+y
-
-" Give more space for displaying messages.
-set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
