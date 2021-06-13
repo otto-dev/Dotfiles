@@ -19,21 +19,41 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <Space>d <Plug>(coc-definition)
+nmap <silent> <Space><Space>y <Plug>(coc-type-definition)
+nmap <silent> <Space><Space>i <Plug>(coc-implementation)
+nmap <silent> <Space><Space>r <Plug>(coc-references)
 
 nmap <Space>ws <Plug>(coc-metals-expand-decoration)
 
 " Use <space>t to show documentation in preview window.
 nnoremap <silent> <Space>t :call <SID>show_documentation()<CR>
+inoremap <silent> <C-t> <C-O>:call <SID>show_documentation()<CR>
+
+" Symbol renaming.
+nmap <Space>r <Plug>(coc-rename)
+
+" Remap for do codeAction of current line
+xmap <Space>a  <Plug>(coc-codeaction-line)
+nmap <Space>a  <Plug>(coc-codeaction-line)
+
+" Fix autofix problem of current line
+nmap <Space>qf  <Plug>(coc-fix-current)
+
+" Trigger for code actions
+" Make sure `"codeLens.enable": true` is set in your coc config
+nnoremap <Space>cl :<C-u>call CocActionAsync('codeLensAction')<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -47,9 +67,6 @@ endfunction
 
 " Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <Space>r <Plug>(coc-rename)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.

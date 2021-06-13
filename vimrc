@@ -97,17 +97,6 @@ set updatetime=500
 nmap <C-S> :w!<CR>
 imap <C-S> <Esc><C-S>
 
-" The hjkl keys are scattered on my Colemak based keyboard layout. The following are the
-" characters which I get when pressing AltGr together with the 'original' hjkl
-" keys. This way I can simulate the normal hjkl key positions by pressing
-" AltGr.
-noremap ß h
-noremap ü gj
-noremap ä gk
-noremap ö l
-map k gk
-map j gj
-
 " Add punctuation to end of line
 nmap <silent> <M-,> myA,<Esc>`y
 inoremap <silent> <M-,> <Esc>myA,<Esc>`y
