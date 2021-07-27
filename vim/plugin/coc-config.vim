@@ -30,7 +30,7 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " GoTo code navigation.
-nmap <silent> <Space>d <Plug>(coc-definition)
+nmap <silent> <Space><Space>d <Plug>(coc-definition)
 nmap <silent> <Space><Space>y <Plug>(coc-type-definition)
 nmap <silent> <Space><Space>i <Plug>(coc-implementation)
 nmap <silent> <Space><Space>r <Plug>(coc-references)
@@ -45,11 +45,11 @@ inoremap <silent> <C-t> <C-O>:call <SID>show_documentation()<CR>
 nmap <Space>r <Plug>(coc-rename)
 
 " Remap for do codeAction of current line
-xmap <Space>a  <Plug>(coc-codeaction-line)
-nmap <Space>a  <Plug>(coc-codeaction-line)
+xmap <Space>a  <Plug>(coc-codeaction-selected)
+nmap <Space>a  <Plug>(coc-codeaction-cursor)
 
 " Fix autofix problem of current line
-nmap <Space>qf  <Plug>(coc-fix-current)
+nmap <Space><Space>f  <Plug>(coc-fix-current)
 
 " Trigger for code actions
 " Make sure `"codeLens.enable": true` is set in your coc config

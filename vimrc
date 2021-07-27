@@ -37,6 +37,10 @@ Plug 'wellle/targets.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Scala intellisense
 Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
+" Markdown preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'fannheyward/coc-pyright', {'do': 'yarn install --frozen-lockfile'}
+
 
 " Initialize plugin system
 call plug#end()

@@ -1,4 +1,4 @@
-alias cvim='vim +ClipBrd +only'
+alias vim='nvim'
 alias reset='reset; source ~/.bashrc'
 
 # ----------------------
