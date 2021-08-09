@@ -2,7 +2,7 @@ URxvt.perl-ext-common: default,matcher,selection-to-clipboard,tabbedex,-searchab
 
 URxvt.clipboard.autocopy: true
 !URxvt.keysym.M-c: perl:clipboard:copy
-URxvt.keysym.M-p: perl:clipboard:paste
+URxvt.keysym.M-p: eval:paste_clipboard
 
 ! do not scroll with output
 URxvt*scrollTtyOutput: false
