@@ -11,7 +11,7 @@ fi
 export GIT_PS1_SHOWDIRTYSTATE=1
 export PS1="\[\033[01;34m\]${COLOR}[${USERNAME}@\h] \w\[\033[01;33m\]\$(__git_ps1)\[\033[01;34m\] \$\[\033[00m\] "
 export TERM=xterm-256color
-export PATH="$(realpath ~)/.local/bin:$PATH"
+export PATH="$(realpath ~)/.local/bin:$(realpath ~)/.daml/bin:$PATH"
 
 # Allow Ctrl-S and Ctrl-Q without freezing terminal
 stty -ixon 
@@ -36,3 +36,6 @@ export EDITOR=/usr/bin/vim
 export HISTCONTROL=ignoredups:erasedups
 # When the shell exits, append to the history file instead of overwriting it
 shopt -s histappend
+
+eval "$(direnv hook bash)"
+

@@ -1,4 +1,4 @@
-URxvt.perl-ext-common: default,matcher,clipboard,tabbedex,-searchable-scrollback
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard,tabbedex,-searchable-scrollback
 
 URxvt.clipboard.autocopy: true
 !URxvt.keysym.M-c: perl:clipboard:copy

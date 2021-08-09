@@ -17,3 +17,4 @@ nmap <A-,> mqA,<Esc>`q
 inoremap <A-,> <Esc>mqA,<Esc>`q
 nmap <A-.> mqA;<Esc>`q
 inoremap <A-.> <Esc>mqA;<Esc>`q
+set ideajoin
