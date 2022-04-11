@@ -40,6 +40,8 @@ Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
 " Markdown preview
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'fannheyward/coc-pyright', {'do': 'yarn install --frozen-lockfile'}
+Plug 'dart-lang/dart-vim-plugin'
+
 
 
 " Initialize plugin system

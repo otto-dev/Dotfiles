@@ -6,5 +6,6 @@
     "javaHome": "/usr/lib/jvm/java-11-openjdk",
     "excludedPackages": ["akka.actor.typed.javadsl"],
     "showInferredType": true
-  }
+  },
+  "metals.serverVersion": "0.10.7"
 }
