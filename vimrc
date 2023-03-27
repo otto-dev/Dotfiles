@@ -41,6 +41,7 @@ Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'}
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'fannheyward/coc-pyright', {'do': 'yarn install --frozen-lockfile'}
 Plug 'dart-lang/dart-vim-plugin'
+Plug 'jvirtanen/vim-hcl'
 
 
 
@@ -182,3 +183,6 @@ if has('gui_running')
     set guioptions -=T
     set guioptions -=m
 endif
+
+" do not add final newline
+set nofixendofline
