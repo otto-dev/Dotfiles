@@ -10,3 +10,5 @@ elif [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ] && [ -z "$TMUX" ] \
 		&& command -v fbterm && command -v tmux ; then
   fbterm -s20 tmux -n "DejaVu Sans Mono:style=bold"
 fi
+
+export PATH="$PATH:/home/otto/.local/share/coursier/bin"
