@@ -81,3 +81,6 @@ activate_venv() {
 # Combine with sensible's PROMPT_COMMAND
 PROMPT_COMMAND="history -a; ${PROMPT_COMMAND:+$PROMPT_COMMAND; }activate_venv"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
