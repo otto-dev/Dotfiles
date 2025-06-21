@@ -1,7 +1,64 @@
+# Better tab-completion settings
 set bell-style none
 
-## cycle forward
-Control-n: menu-complete
+# Show all completions as soon as I press tab, even if there's more than one
+set show-all-if-ambiguous on
 
-"\e[7~":beginning-of-line
-"\e[8~":end-of-line
+# Cycle through completions with Tab instead of just listing them
+set menu-complete-display-prefix on
+
+# Tab/Shift+Tab to cycle through completions
+TAB: menu-complete
+"\e[Z": menu-complete-backward
+
+# Ignore case when completing
+set completion-ignore-case on
+
+# Treat hyphens and underscores as equivalent when completing
+set completion-map-case on
+
+# Show all completions sorted alphabetically
+set completion-display-width 0
+
+# Color files by types
+set colored-stats on
+
+# Color the common prefix in completions
+set colored-completion-prefix on
+
+# Append a slash when completing symbolic links to directories
+set mark-symlinked-directories on
+
+# Show extra file information when completing (like ls -F)
+set visible-stats on
+
+# Skip completed text when moving through completion suggestions
+set skip-completed-text on
+
+# Be more intelligent when autocompleting (e.g. when middle of word)
+set skip-completed-text on
+
+# Use the text that has already been typed as the prefix for searching through
+# commands (basically more intelligent Up/Down behavior)
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# Use Ctrl+n/p to cycle through completions
+Control-n: menu-complete
+Control-p: menu-complete-backward
+
+# Use Alt-h to show all completions (like double-tab but with one key)
+"\eh": complete
+
+# Move to beginning/end of line
+"\e[7~": beginning-of-line
+"\e[8~": end-of-line
+"\e[H": beginning-of-line
+"\e[F": end-of-line
+
+# Alt+Left/Right to move by words
+"\e[1;3D": backward-word
+"\e[1;3C": forward-word
+
+# Enable bracketed paste mode (prevents issues when pasting multi-line content)
+set enable-bracketed-paste on

@@ -1,0 +1,102 @@
+# Custom bash completions
+
+# Better cd completion - complete with directories only
+complete -d cd
+
+# Git command completion enhancements
+if command -v git &>/dev/null; then
+    # Complete git commands with branches and tags
+    _git_complete() {
+        local cur="${COMP_WORDS[COMP_CWORD]}"
+        case "${COMP_WORDS[1]}" in
+            checkout|co|switch|merge|rebase)
+                COMPREPLY=($(compgen -W "$(git branch -a 2>/dev/null | sed 's/[* ]//g' | cut -d'/' -f3-)" -- "$cur"))
+                ;;
+            push|pull|fetch)
+                COMPREPLY=($(compgen -W "$(git remote 2>/dev/null)" -- "$cur"))
+                ;;
+        esac
+    }
+    complete -F _git_complete git
+fi
+
+# Docker completion
+if command -v docker &>/dev/null; then
+    # Complete docker commands with container names
+    _docker_containers() {
+        local cur="${COMP_WORDS[COMP_CWORD]}"
+        COMPREPLY=($(compgen -W "$(docker ps -a --format '{{.Names}}' 2>/dev/null)" -- "$cur"))
+    }
+    complete -F _docker_containers docker exec
+    complete -F _docker_containers docker logs
+    complete -F _docker_containers docker stop
+    complete -F _docker_containers docker start
+    complete -F _docker_containers docker rm
+fi
+
+# NPM run script completion
+if command -v npm &>/dev/null && [ -f package.json ]; then
+    _npm_run_complete() {
+        local cur="${COMP_WORDS[COMP_CWORD]}"
+        if [[ "${COMP_WORDS[1]}" == "run" ]]; then
+            local scripts=$(node -e "console.log(Object.keys(require('./package.json').scripts || {}).join(' '))" 2>/dev/null)
+            COMPREPLY=($(compgen -W "$scripts" -- "$cur"))
+        fi
+    }
+    complete -F _npm_run_complete npm
+fi
+
+# Make completion - complete with targets from Makefile
+if [ -f Makefile ] || [ -f makefile ]; then
+    complete -W "$(grep -E '^[a-zA-Z_-]+:.*?$$' [Mm]akefile 2>/dev/null | cut -d':' -f1)" make
+fi
+
+# Kill command completion with process names
+_kill_complete() {
+    local cur="${COMP_WORDS[COMP_CWORD]}"
+    # Get list of process names
+    local procs=$(ps aux | awk 'NR>1{print $11}' | sed 's|.*/||' | sort -u)
+    COMPREPLY=($(compgen -W "$procs" -- "$cur"))
+}
+complete -F _kill_complete kill
+complete -F _kill_complete killall
+
+# Python virtualenv activation
+complete -W "$(ls -d venv*/ env*/ .venv*/ 2>/dev/null | sed 's|/$||')" source
+
+# Common config file locations
+complete -f -X '!*.conf' -o default conf
+complete -f -X '!*.config' -o default config
+complete -f -X '!*.yml' -o default yml
+complete -f -X '!*.yaml' -o default yaml
+complete -f -X '!*.json' -o default json
+
+# History expansion - complete with commands from history
+bind '"\e[Z": menu-complete-backward'
+bind '"\ep": history-expand-line'
+
+# Directory shortcuts - use with cd
+if [ -d ~/Projects ]; then
+    complete -W "$(ls ~/Projects 2>/dev/null)" -o default cdp
+    alias cdp='cd ~/Projects/'
+fi
+
+# Enhanced man page completion
+if command -v man &>/dev/null; then
+    complete -W "$(ls /usr/share/man/man1 2>/dev/null | sed 's/\.[0-9].*$//' | sort -u)" man
+fi
+
+# systemctl completion enhancement
+if command -v systemctl &>/dev/null; then
+    _systemctl_complete() {
+        local cur="${COMP_WORDS[COMP_CWORD]}"
+        local prev="${COMP_WORDS[COMP_CWORD-1]}"
+        
+        case "$prev" in
+            start|stop|restart|status|enable|disable)
+                COMPREPLY=($(compgen -W "$(systemctl list-unit-files --type=service --no-pager --no-legend | awk '{print $1}')" -- "$cur"))
+                ;;
+        esac
+    }
+    complete -F _systemctl_complete systemctl
+fi

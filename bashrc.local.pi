@@ -1,3 +1,0 @@
-if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ] && [ -z "$TMUX" ]; then
-  fbterm -s20 tmux -n "DejaVu Sans Mono:style=bold"
-fi
